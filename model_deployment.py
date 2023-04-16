@@ -21,7 +21,7 @@ Include the model just below. Test
 model_path = './models/resnet50_model.pt'
 model = torch.load(model_path)
 
-image_directory = './images'
+image_directory = './my_dogs'
 
 def getImages(directoryName):
     dir_path = directoryName
