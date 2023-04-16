@@ -4,6 +4,8 @@ from PIL import Image
 import os
 import glob
 import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
 
 # order of algorithm
 # 1. get list of images
@@ -16,15 +18,15 @@ To finish this we need to create a directory that contains images of type .png
 Also need to include a model in the directory, can't to over github I don't think
 Include the model just below. Test
 """
-# model = load the model here
+model_path = './models/resnet50_model.pt'
+model = torch.load(model_path)
 
-image_directory = '/images/'
+image_directory = './images'
 
 def getImages(directoryName):
     dir_path = directoryName
     file_pattern = '*.png'
     image_list = []
-
     for file_path in glob.glob(os.path.join(dir_path, file_pattern)):
         img = Image.open(file_path)
         img_arr = np.array(img)
@@ -48,6 +50,7 @@ def processed_list():
     processed_list = []
     for img in original_list:
         processed_list.append(process_image(img))
+    print(processed_list[0].shape)
     return processed_list
 
 def classify_images(model, processed_img_list):
@@ -58,6 +61,6 @@ def classify_images(model, processed_img_list):
     return classifications
 
 img_list = processed_list()
-classification = classify_images(img_list)
+classification = classify_images(model, img_list)
 
 print(classification)
