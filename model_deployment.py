@@ -34,30 +34,29 @@ def getImages(directoryName):
     return image_list
 
 def process_image(img):
-    trans = transforms.Compose([transforms.ToTensor(), transforms.Resize(256)])
-    trans2 = transforms.Compose([transforms.CenterCrop(224)])
-    trans3 = transforms.Compose([transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
-    img_trans1 = trans(img)
-    img_trans2 = trans2(img_trans1)
-    img_trans3 = trans3(img_trans2)
-    img_trans1 = np.transpose(img_trans1, (1, 2, 0))
-    img_trans2 = np.transpose(img_trans2, (1, 2, 0))
-    img_trans3 = np.transpose(img_trans3, (1, 2, 0))
-    return img_trans3
+    data_transforms = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        ])
+    img = data_transforms(img)
+    img = torch.unsqueeze(img, dim=0)
+    return img
 
 def processed_list():
     original_list = getImages(image_directory)
     processed_list = []
     for img in original_list:
         processed_list.append(process_image(img))
-    print(processed_list[0].shape)
     return processed_list
 
 def classify_images(model, processed_img_list):
     classifications = []
     for img in processed_img_list:
-        pred = model.forward(img)
-        classifications.append(pred)
+        model.eval()
+        logits = model(img)
+        classifications.append(torch.argmax(logits, dim=1))
     return classifications
 
 img_list = processed_list()
