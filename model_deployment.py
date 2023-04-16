@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # 4. print the list
 
 """
-To finish this we need to create a directory that contains images of type .png
+To finish this we need to create a directory that contains images of type .jpg
 Also need to include a model in the directory, can't to over github I don't think
 Include the model just below. Test
 """
@@ -25,7 +25,7 @@ image_directory = './images'
 
 def getImages(directoryName):
     dir_path = directoryName
-    file_pattern = '*.png'
+    file_pattern = '*.jpg'
     image_list = []
     for file_path in glob.glob(os.path.join(dir_path, file_pattern)):
         img = Image.open(file_path)
