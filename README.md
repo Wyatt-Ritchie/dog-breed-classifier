@@ -1,4 +1,6 @@
 # CSCI4050U Final Project
+https://www.youtube.com/watch?v=UmLHT3xk5PM
+
 ## Dog Breed Classification using Transfer Learning
 
 Our group did a comparative study of different neural networks. 
