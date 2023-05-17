@@ -12,22 +12,9 @@ Also, there is code for identifying dog breeds given user image input (via the `
 ## Contributors
 
 Our team consists of the following members, with their contributions listed:
-  - Wenbo Zhang ([@Falanan](https://github.com/Falanan)) - 100778036
-    - Initial code & analysis
-    - Code for data download
-    - DataLoader code
-    - ResNet Trainer code
-    - Fine tuning code for ResNet & VGG models
-    - Code walkthrough video recording
-  - Martin Truong ([@martru118](https://github.com/martru118)) - 100708410
-    - VGG models and Trainer
-    - Code refactor
-    - Code for saving models and records
-    - Plotting code
-    - Presentation
-    - Deployment code
-    - Video editing
-  - Wyatt Ritchie ([@wyattRitchie](https://github.com/wyattRitchie)) - 100483764
-    - Image pre-processing
-    - Presentation
-    - Deployment code
+  - Wenbo Zhang ([@Falanan](https://github.com/Falanan))
+    
+  - Martin Truong ([@martru118](https://github.com/martru118))
+    
+  - Wyatt Ritchie ([@wyattRitchie](https://github.com/wyattRitchie)) 
+    
